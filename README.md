@@ -1,42 +1,55 @@
-# Scoop Bucket Template
+# RaynerSec Scoop Bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/RaynerSec/scoop-bucket/actions/workflows/ci.yml/badge.svg)](https://github.com/RaynerSec/scoop-bucket/actions/workflows/ci.yml)
+[![Excavator](https://github.com/RaynerSec/scoop-bucket/actions/workflows/excavator.yml/badge.svg)](https://github.com/RaynerSec/scoop-bucket/actions/workflows/excavator.yml)
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+Official Scoop bucket for RaynerSec software.
 
-## How do I use this template?
+## Usage
 
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Workflow permissions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Ensure `Read repository contents and packages permissions` is selected.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
+### Add Bucket
 
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
-
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+```powershell
+scoop bucket add raynersec https://github.com/RaynerSec/scoop-bucket
 ```
 
-## How do I contribute new manifests?
+### Install an Application
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+```powershell
+scoop install raynersec/<app-name>
+```
+
+For example, to install **Hyper-V-Switch**:
+
+```powershell
+scoop install raynersec/hyper-v-switch
+```
+
+### Update Applications
+
+```powershell
+scoop update <app-name>
+```
+
+Or update all installed applications at once:
+
+```powershell
+scoop update *
+```
+
+## Available Packages
+
+| Package | Version | Description | License |
+| :--- | :--- | :--- | :--- |
+| [hyper-v-switch](https://github.com/RaynerSec/Hyper-V-Switch) | `1.0.1.0` | Enables and disables Hyper-V Hypervisor so you can use other virtualization tools simultaneously. | `GPL-3.0-or-later` |
+
+## Notes
+
+* **Prerequisites:** Some applications (such as `hyper-v-switch`) require the latest Microsoft Visual C/C++ Redistributable (`scoop install extras/vcredist2022`).
+* **Permissions:** System-level utilities may trigger a Windows UAC prompt when launched.
+* **Issues & Bug Reports:** Please open issues in each application's respective repository rather than this bucket repository.
+
+## License
+
+The manifests and scripts in this Scoop bucket are released into the public domain under **The Unlicense**. Individual software packages installed through this bucket remain subject to their own respective licenses.
