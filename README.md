@@ -20,10 +20,16 @@ scoop bucket add raynersec https://github.com/RaynerSec/scoop-bucket
 scoop install raynersec/<app-name>
 ```
 
-For example, to install **Hyper-V-Switch**:
+For example, to install **Hyper-V-Switch** (portable version):
 
 ```powershell
 scoop install raynersec/hyper-v-switch
+```
+
+Or to install **Hyper-V-Switch** (non-portable Inno Setup installer version):
+
+```powershell
+scoop install raynersec/hyper-v-switch-np
 ```
 
 ### Update Applications
@@ -42,12 +48,13 @@ scoop update *
 
 | Package | Version | Description | License |
 | :--- | :--- | :--- | :--- |
-| [hyper-v-switch](https://github.com/RaynerSec/Hyper-V-Switch) | `1.0.1.0` | Enables and disables Hyper-V Hypervisor so you can use other virtualization tools simultaneously. | `GPL-3.0-or-later` |
+| [hyper-v-switch](https://github.com/RaynerSec/Hyper-V-Switch) | `1.0.1.0` | Enables and disables Hyper-V Hypervisor so you can use other virtualization tools simultaneously (Portable). | `GPL-3.0-or-later` |
+| [hyper-v-switch-np](https://github.com/RaynerSec/Hyper-V-Switch) | `1.0.1.0` | Enables and disables Hyper-V Hypervisor so you can use other virtualization tools simultaneously (Non-portable installer). | `GPL-3.0-or-later` |
 
 ## Notes
 
-* **Prerequisites:** Some applications (such as `hyper-v-switch`) require the latest Microsoft Visual C/C++ Redistributable (`scoop install extras/vcredist2022`).
-* **Permissions & Reboots:** System-level utilities may trigger a Windows UAC prompt when launched and require a system reboot to apply boot configuration changes.
+* **Prerequisites:** Portable applications (such as `hyper-v-switch`) require the latest Microsoft Visual C/C++ Redistributable (`scoop install extras/vcredist2022`). Non-portable installer packages (`*-np`) bundle their required runtime dependencies.
+* **Permissions & Reboots:** System-level utilities and non-portable installers (`*-np`) may trigger a Windows UAC prompt during installation or launch and require a system reboot to apply boot configuration changes.
 * **Issues & Bug Reports:** Please open issues in each application's respective repository rather than this bucket repository.
 
 ## License
