@@ -39,6 +39,10 @@
             ]
         }
     },
+    "notes": [
+        "Hyper-V-Switch requires administrator privileges (UAC) to modify hypervisor boot settings.",
+        "A system reboot is required after enabling or disabling Hyper-V."
+    ],
     "checkver": {
         "github": "https://github.com/RaynerSec/Hyper-V-Switch"
     },
