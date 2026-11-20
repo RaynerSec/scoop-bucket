@@ -47,7 +47,7 @@ scoop update *
 ## Notes
 
 * **Prerequisites:** Some applications (such as `hyper-v-switch`) require the latest Microsoft Visual C/C++ Redistributable (`scoop install extras/vcredist2022`).
-* **Permissions:** System-level utilities may trigger a Windows UAC prompt when launched.
+* **Permissions & Reboots:** System-level utilities may trigger a Windows UAC prompt when launched and require a system reboot to apply boot configuration changes.
 * **Issues & Bug Reports:** Please open issues in each application's respective repository rather than this bucket repository.
 
 ## License
